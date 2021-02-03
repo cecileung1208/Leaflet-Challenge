@@ -15,4 +15,25 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 
+// Create a variable for the geojson
+var queryURL =  "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+
+//Create a function to get the infomration
+d3.json(queryURL, function(data) {
+
+  console.log(data);
+
+  var features = data.features;
+
+  for(var i=0; i<features.length; i++){
+  var location = features[i].geometry.coordinates
+  var magnitude = features[i].properties.mag
+
+
+  if (location) {
+    L.marker([location[1], location[0]]).addTo(myMap);
+    };
+  }
+
+});
 
