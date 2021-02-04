@@ -34,19 +34,19 @@ d3.json(queryURL, function(json) {
           fillColor: "#FF3333",
         }; 
       }
-      else if (depth >= 70.0) {
+      else if (depth > 70.0) {
         return {
           fillColor: "#FF9966"
         };
-      } else if (depth >= 50) {
+      } else if (depth > 50) {
           return {
           fillColor: "#FF9900"
         };
-      } else if (depth >= 30) {
+      } else if (depth > 30) {
           return {
           fillColor: "#FFCC33"
         };
-      } else if (depth >= 10) {
+      } else if (depth > 10) {
           return {
           fillColor: "#99FF00"
         };
@@ -89,7 +89,7 @@ d3.json(queryURL, function(json) {
 var legend = L.control({ position: "bottomright" });
 legend.onAdd = function() {
   var div = L.DomUtil.create("div", "info legend");
-  var depth = ["-10-10", "10-30", "30-50", "50-70", "70-90", "90+"];
+  var depth = [-10, 10, 30, 50, 70, 90 ];
   var colors = ["#66FF00","#99FF00","#FFCC33","#FF9900","#FF9966","#FF3333"]
 
 // loop through our density intervals and generate a label with a colored square for each interval
