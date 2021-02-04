@@ -4,7 +4,7 @@ var myMap = L.map("mapid", {
   zoom: 5
 });
 
-// Add a light tile layer
+// Add a light tile layer and adding it to myMap
 L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
   tileSize: 512,
@@ -16,19 +16,25 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 
-// Create a variable for the geojson
+// Create a variable for the geojson url
 var queryURL =  "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 
-
+// Retrieve data from the query url
 d3.json(queryURL, function(json) {
 
 
-
+// Use geoJson to set conditions based on the json data
   geoLayer = L.geoJson(json, {
 
+    // Set function to retrieve depth data
     style: function(feature) {
+
+      // Set variable for depth to locate where the data is 
       var depth = feature.geometry.coordinates[2];
+
+      // Conditional Statement for color scale vs depth
+      // For high depth, circles will be red and low depth, circles will be green
       if (depth >= 90.0) {
         return {
           fillColor: "#FF3333",
@@ -57,38 +63,50 @@ d3.json(queryURL, function(json) {
       }
     },
 
+    // Set Function to display information on mouse activity
     onEachFeature: function(feature, layer) {
 
+      // Set information to be displayed - show magnitude, depth, location and url
       var popupText = "<b>Magnitude:</b> " + feature.properties.mag +
         "<br><b>Depth:</b> " + feature.geometry.coordinates[2] +
         "<br><b>Location:</b> " + feature.properties.place +
         "<br><a href='" + feature.properties.url + "'>More info</a>";
 
+      // Create pop up box and close box button for popupText
       layer.bindPopup(popupText, {
         closeButton: true,
         offset: L.point(0, -20)
       });
+      // Create event to display popupText information when clicking on the circle label
       layer.on('click', function() {
         layer.openPopup();
       });
     },
 
+    // Create function to identify earthquake location by using the latlng method
     pointToLayer: function(feature, latlng) {
+      // Put the circle markers based on the latlng location
       return L.circleMarker(latlng, {
+        //Set styles
         radius: Math.round(feature.properties.mag) * 4,
         fillOpacity: 1,
         color: "black",
         weight: 0.5
       });
     },
+  // Add all the layers/functions to my map to display the information
   }).addTo(myMap);
 });
 
 
-// Set up the legend
+// Set up the position of the legend
 var legend = L.control({ position: "bottomright" });
+
+// Create div to position legend on HTML
 legend.onAdd = function() {
   var div = L.DomUtil.create("div", "info legend");
+
+  // Set labels and color legends
   var depth = [-10, 10, 30, 50, 70, 90 ];
   var colors = ["#66FF00","#DDFF00","#FFBF00","#FF9900","#FF9966","#FF3333"]
 
@@ -100,4 +118,5 @@ for (var i = 0; i < depth.length; i++) {
 }
 return div;
 };
+// Add legend to be displayed on myMap
 legend.addTo(myMap);
