@@ -14,46 +14,71 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-function getColor(d) {
-  if (d < 10)
-    return "green";
-  else if (d < 30)
-    return "yellow";
-  else if (d < 50)
-    return "pink";
-  else if (d < 70)
-    return "blue";
-  else if (d<90)
-    return "orange";
-  else
-    return "red"
-}
+
 
 // Create a variable for the geojson
 var queryURL =  "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
-//Create a function to get the infomration
-d3.json(queryURL, function(data) {
 
-  console.log(data);
 
-  var features = data.features;
+d3.json(queryURL, function(json) {
 
-  for(var i=0; i<features.length; i++){
-  var location = features[i].geometry.coordinates
-  var magnitude = features[i].properties.mag
-  console.log(location[2])
 
-  if (location) {
-    L.circle([location[1], location[0]],{
-      fillOpacity: 0.75,
-      color: "black",
-      fillColor: getColor([location[2]]),
-    // Adjust radius
-    radius: magnitude * 20000
-    }).addTo(myMap);
-    };
-  }
 
+  geoLayer = L.geoJson(json, {
+
+    style: function(feature) {
+      var depth = feature.geometry.coordinates[2];
+      if (depth >= 90.0) {
+        return {
+          color: "#FF3333"
+        }; 
+      }
+      else if (depth >= 70.0) {
+        return {
+          color: "#FF9966"
+        };
+      } else if (depth >= 50) {
+          return {
+            color: "#FF9900"
+        };
+      } else if (depth >= 30) {
+          return {
+            color: "#FFCC33"
+        };
+      } else if (depth >= 10) {
+          return {
+            color: "#99FF00"
+        };
+      } else {
+          return {
+            color: "#66FF00"
+        }
+      }
+    },
+
+    onEachFeature: function(feature, layer) {
+
+      var popupText = "<b>Magnitude:</b> " + feature.properties.mag +
+        "<br><b>Depth:</b> " + feature.geometry.coordinates[2] +
+        "<br><b>Location:</b> " + feature.properties.place +
+        "<br><a href='" + feature.properties.url + "'>More info</a>";
+
+      layer.bindPopup(popupText, {
+        closeButton: true,
+        offset: L.point(0, -20)
+      });
+      layer.on('click', function() {
+        layer.openPopup();
+      });
+    },
+
+    pointToLayer: function(feature, latlng) {
+      return L.circleMarker(latlng, {
+        radius: Math.round(feature.properties.mag) * 4,
+        fillOpacity: 1,
+        color: "black",
+      });
+    },
+  }).addTo(myMap);
 });
-
