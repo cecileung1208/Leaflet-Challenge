@@ -31,28 +31,28 @@ d3.json(queryURL, function(json) {
       var depth = feature.geometry.coordinates[2];
       if (depth >= 90.0) {
         return {
-          color: "#FF3333"
+          fillColor: "#FF3333",
         }; 
       }
       else if (depth >= 70.0) {
         return {
-          color: "#FF9966"
+          fillColor: "#FF9966"
         };
       } else if (depth >= 50) {
           return {
-            color: "#FF9900"
+          fillColor: "#FF9900"
         };
       } else if (depth >= 30) {
           return {
-            color: "#FFCC33"
+          fillColor: "#FFCC33"
         };
       } else if (depth >= 10) {
           return {
-            color: "#99FF00"
+          fillColor: "#99FF00"
         };
       } else {
           return {
-            color: "#66FF00"
+          fillColor: "#66FF00"
         }
       }
     },
@@ -78,6 +78,7 @@ d3.json(queryURL, function(json) {
         radius: Math.round(feature.properties.mag) * 4,
         fillOpacity: 1,
         color: "black",
+        weight: 0.5
       });
     },
   }).addTo(myMap);
