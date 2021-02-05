@@ -1,15 +1,7 @@
 
-// Add a light tile layer and adding it to myMap
+// Setting map layer style variables 
 
-var lightMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-  attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-  tileSize: 512,
-  maxZoom: 18,
-  zoomOffset: -1,
-  id: "mapbox/light-v10",
-  accessToken: API_KEY
-})
-
+// Satellite Map Style
 var satelliteMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
   tileSize: 512,
@@ -19,6 +11,17 @@ var satelliteMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/
   accessToken: API_KEY
 });
 
+// Gray Scale Style
+var grayscaleMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+  attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+  tileSize: 512,
+  maxZoom: 18,
+  zoomOffset: -1,
+  id: "mapbox/light-v10",
+  accessToken: API_KEY
+})
+
+// Outdoors Style
 var outdoorsMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
   maxZoom: 18,
@@ -29,14 +32,14 @@ var outdoorsMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tile
 // Create a baseMaps object
 var baseMaps = {
   "Satellite": satelliteMap,
-  "Grayscale": lightMap,
+  "Grayscale": grayscaleMap,
   "Outdoors": outdoorsMap
 };
 
 // Create an overlay object
-// var overlayMaps ={
-//   "Earthquakes": geoLayer,
-// };
+var overlayMaps ={
+  "Earthquakes": outdoorsMap
+};
 
 // Create a map object
 var myMap = L.map("mapid", {
@@ -47,7 +50,7 @@ var myMap = L.map("mapid", {
 
 
 
-L.control.layers(baseMaps).addTo(myMap);
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 
 
