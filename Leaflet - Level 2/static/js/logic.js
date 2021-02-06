@@ -38,7 +38,8 @@ var baseMaps = {
 
 // Create an overlay object
 var overlayMaps ={
-  "Earthquakes": outdoorsMap
+  "Earthquakes": earthquake,
+  "Tectonics": grayscaleMap
 };
 
 // Create a map object
@@ -63,7 +64,9 @@ d3.json(queryURL, function(json) {
 
 
 // Use geoJson to set conditions based on the json data
-  geoLayer = L.geoJson(json, {
+
+var earthquake = L.layerGroup().addTo(map);
+ L.geoJson(json, {
 
     // Set function to retrieve depth data
     style: function(feature) {
@@ -73,6 +76,7 @@ d3.json(queryURL, function(json) {
 
       // Conditional Statement for color scale vs depth
       // For high depth, circles will be red and low depth, circles will be green
+      
       if (depth >= 90.0) {
         return {
           fillColor: "#FF3333",
@@ -118,6 +122,8 @@ d3.json(queryURL, function(json) {
       // Create event to display popupText information when clicking on the circle label
       layer.on('click', function() {
         layer.openPopup();
+
+        earthquake.addLayer(layer);
       });
     },
 
