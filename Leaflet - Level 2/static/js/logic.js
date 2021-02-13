@@ -1,6 +1,6 @@
 // Create a variables for the earthquake and plates URL
 var queryURL =  "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-var plateURL = "https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_boundaries.json";
+var plateURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
 
 
 //EARTHQUAKE OVERLAYER
@@ -64,10 +64,12 @@ var tectonics = new L.LayerGroup();
 
 d3.json(plateURL, function (geoJson) {
   L.geoJSON(geoJson.features, {
+
+
       style: function (geoJsonFeature) {
           return {
               weight: 2,
-              color: 'blue'
+              color: "orange"
           }
       },
   }).addTo(tectonics);
