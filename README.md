@@ -20,3 +20,4 @@ The USGS is interested in building a new set of tools that will allow them visua
 
 * The visualization is shown below:
 
+![Image](https://github.com/cecileung1208/Leaflet-Challenge/blob/main/Images/2-BasicMap.png)
