@@ -23,3 +23,19 @@ The USGS is interested in building a new set of tools that will allow them visua
 * The visualization is shown below:
 
 ![Image](https://github.com/cecileung1208/Leaflet-Challenge/blob/main/Images/2-BasicMap.png)
+
+* Script is in the [Leaflet - Level 1 folder](https://github.com/cecileung1208/Leaflet-Challenge/tree/main/Leaflet%20-%20Level%201).
+
+## Level 2 - Adding Base Layers, Overlay Layers and Tectonic Plates to the Earthquake Map
+
+The USGS wants another another set of data to be plotted on the above map to illustrate the relationship between tectonic plates and seismic activity. You will need to pull in a second data set and visualize it along side your original set of data. Data on tectonic plates can be found at [https://github.com/fraxen/tectonicplates](https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json).
+
+* Add Tectonic plates to the map.
+
+* Add a number of base maps to choose from as well as separate out our two different data sets into overlays that can be turned on and off independently.
+
+* Add layer controls to our map.
+
+![Image](https://github.com/cecileung1208/Leaflet-Challenge/blob/main/Images/5-Advanced.png)
+
+* Script is in the [Leaflet - Level 2 folder](https://github.com/cecileung1208/Leaflet-Challenge/tree/main/Leaflet%20-%20Level%202).
