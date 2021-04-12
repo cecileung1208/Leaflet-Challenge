@@ -1,17 +1,29 @@
-# Leaflet-Challenge
-
+# USGS Earthquake Analysis
 
 ## Background
 
-Welcome to the United States Geological Survey, or USGS for short! The USGS is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment; and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes. As a new hire, I will be helping them out with an exciting new project!
+The purpose of this project is to help United States Geological Survey (USGS) visualize their global earthquake data to educate the general public and government organizations on environmental issues facing our planet.
 
-The USGS is interested in building a new set of tools that will allow them visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. Their hope is that being able to visualize their data will allow them to better educate the public and other government organizations (and hopefully secure more funding..) on issues facing our planet.
+The USGS provides earthquake data in GeoJSON format that is updated every minute.  For this project we will use the 'All Earthquakes from the Past 7 Days' to create a map using Leaflet that plots all of the earthquakes from your data set based on their longitude and latitude.
 
 ## Requirements
 
+1.  Plot Earthquake Data on the map with:
+  * Marker Size based on the Earthquake's Magnitude
+  * Marker Color based on the Eqrthquake's Depth
+  * Include pop-up information when marker is clicked.
+  * Provide legend of the Earthquake's Depth
+
+2.  Add Base Layers, Overlay Layers and Techtonic Plates on the Map.
+
 ## Dataset
 
+All Earthquakes from the Past 7 Days - https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+Techtonic Plates Data - https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json
+
 ## Method
+
+
 
 ## Script
 
