@@ -42,9 +42,9 @@ The USGS provides earthquake data in GeoJSON format that is updated every minute
 
 ## Results
 
-![Image](https://github.com/cecileung1208/Leaflet-Challenge/blob/main/Images/2-BasicMap.png)
+![Image](https://github.com/cecileung1208/USGS-Earthquake-Analysis/blob/main/Images/Global.png)
 
 * Earthquakes usually occur in coastal areas and locations close to the tectonic plates.
 * Earthquakes have a higher depth in the southern hemisphere.
 * Earthquakes have a higher magnitude in South America and in East Asia.
-*  United States have the most earthquakes.
+* United States have the most earthquakes out of all the countries in the world.
