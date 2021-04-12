@@ -35,6 +35,9 @@ Techtonic Plates Data - https://raw.githubusercontent.com/fraxen/tectonicplates/
 
 ## Script
 
+* [Leaflet - Maps with Markers](https://github.com/cecileung1208/Leaflet-Challenge/tree/main/Leaflet%20-%20Level%201).
+* [Leaflet - Maps with Markers, Overlays, Plates](https://github.com/cecileung1208/Leaflet-Challenge/tree/main/Leaflet%20-%20Level%202).
+
 ## Results
 
 ## Level 1 - Visualizing Earthquake Dataset
