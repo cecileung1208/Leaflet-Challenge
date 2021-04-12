@@ -48,3 +48,5 @@ The USGS provides earthquake data in GeoJSON format that is updated every minute
 * Earthquakes have a higher depth in the southern hemisphere.
 * Earthquakes have a higher magnitude in South America and in East Asia.
 * United States have the most earthquakes out of all the countries in the world.
+
+USGS Earthquake Interactive Website -   https://cecileung1208.github.io/USGS-Earthquake-Analysis/
