@@ -24,7 +24,14 @@ Techtonic Plates Data - https://raw.githubusercontent.com/fraxen/tectonicplates/
 
 ## Method
 
-
+* Import the GeoJSON data.
+* Extract the location, magnitude, depth and details of the earthquake event.
+* For each earthquake event, create a pop-up box with the above information.
+* For each earthquake event, create a circle marker whose size is based on the magnitude.
+* For each earthquake event, create a circle marker whose color is based on teh depth.
+* Import four map layers (satellite, outdoors, dark, light) from the Mapbox API.
+* Link the map layers, circle markers, and pop-up boxes together to create the interactive map.
+* Create a legend for the circle marker color scale and add it to the interactive map.
 
 ## Script
 
