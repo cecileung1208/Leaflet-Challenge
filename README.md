@@ -19,8 +19,8 @@ The USGS provides earthquake data in GeoJSON format that is updated every minute
 
 ## Dataset
 
-All Earthquakes from the Past 7 Days - https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
-Techtonic Plates Data - https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json
+[All Earthquakes from the Past 7 Days](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson)<br>
+[Techtonic Plates Data](https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json)
 
 ## Method
 
