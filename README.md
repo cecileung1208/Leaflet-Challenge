@@ -8,13 +8,14 @@ The USGS provides earthquake data in GeoJSON format that is updated every minute
 
 ## Requirements
 
-1.  Plot Earthquake Data on the map with:
+**1.  Plot Earthquake Data on the map:**
+  * Based on the latitude and longitude
   * Marker Size based on the Earthquake's Magnitude
   * Marker Color based on the Eqrthquake's Depth
   * Include pop-up information when marker is clicked.
   * Provide legend of the Earthquake's Depth
 
-2.  Add Base Layers, Overlay Layers and Techtonic Plates on the Map.
+**2.  Add Base Layers, Overlay Layers and Techtonic Plates on the Map.**
 
 ## Dataset
 
