@@ -110,7 +110,7 @@ function createMap() {
     maxZoom: 18,
     zoomOffset: -1,
     id: "mapbox/satellite-v9",
-    accessToken: API_KEY
+    accessToken: "pk.eyJ1IjoiY2VjaWxldW5nMTIwOCIsImEiOiJja2tlbjUyeTkwMDIyMndwMnl0cjhvN3hjIn0.qleCzLiGbhJQ1nAOxE4f3w"
   });
   
   // Gray Scale Style
@@ -120,7 +120,7 @@ function createMap() {
     maxZoom: 18,
     zoomOffset: -1,
     id: "mapbox/light-v10",
-    accessToken: API_KEY
+    accessToken: "pk.eyJ1IjoiY2VjaWxldW5nMTIwOCIsImEiOiJja2tlbjUyeTkwMDIyMndwMnl0cjhvN3hjIn0.qleCzLiGbhJQ1nAOxE4f3w"
   })
   
   // Outdoors Style
@@ -128,7 +128,7 @@ function createMap() {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
     maxZoom: 18,
     id: "outdoors-v11",
-    accessToken: API_KEY
+    accessToken: "pk.eyJ1IjoiY2VjaWxldW5nMTIwOCIsImEiOiJja2tlbjUyeTkwMDIyMndwMnl0cjhvN3hjIn0.qleCzLiGbhJQ1nAOxE4f3w"
   });
 
   // Create a baseMaps object
